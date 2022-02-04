@@ -447,7 +447,7 @@ def compute_score(dataroot, metric="fxd", workers=4, batchSize=64, other=False, 
     
     return score
     
-if __name__ == "__main__":
+def main():
     a1 = random(2*2048).reshape((2,2048))
     fd = calculate_fd(a1, a1)
 
@@ -475,4 +475,7 @@ if __name__ == "__main__":
         print("\tEvaluation Score")
         print("\t-------------------------")
         print("\t",opt.metric,": ", result)
+    
+if __name__ == "__main__":
+    main()
     
