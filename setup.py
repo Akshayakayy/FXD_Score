@@ -29,7 +29,7 @@ if __name__ == '__main__':
         long_description=read('README.md'),
         long_description_content_type='text/markdown',
         url='https://github.com/Akshayakayy/FXD_Score.git',
-        download_url = 'https://github.com/Akshayakayy/FXD_Score/archive/refs/tags/0.1.tar.gz',
+        download_url = 'https://github.com/Akshayakayy/FXD_Score/archive/refs/tags/0.2.tar.gz',
         keywords = ['FXD', 'Evaluation metric', 'featurization'],
         package_dir={'': 'src'},
         packages=setuptools.find_packages(where='src'),
