@@ -2,7 +2,7 @@
 
 # FXD score for PyTorch
 
-### An Improved Metric for Evaluating Chest X-Ray Generation Methods
+## An Improved Metric for Evaluating Chest X-Ray Generation Methods
 
 This is a port of the official implementation of FXD Score to PyTorch.
 
@@ -40,8 +40,10 @@ pytorch-fxd --dataroot path/to/dataset
 ```
 path/to/dataset must contain two folders: setA and setB
 
-To run the evaluation on GPU, use the flag `--cuda` 
-To compute other metric scores, use the flag `--all`
+To run the evaluation on GPU, use the flag `--cuda`  
+
+To compute other metric scores, use the flag `--all` 
+
 The scores are by default calculated using Torchxrayvision's pretrained model. To calculate using Inception v3 instead, use the flag `--metric fid`
 
 To view other optional arguments:
