@@ -2,7 +2,7 @@
 
 # FXD score for PyTorch
 
-### An Improved Metric for Evaluating Chest X-Ray Generation Methods
+## An Improved Metric for Evaluating Chest X-Ray Generation Methods
 
 This is a port of the official implementation of FXD Score to PyTorch.
 
