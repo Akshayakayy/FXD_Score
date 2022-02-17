@@ -40,8 +40,9 @@ pytorch-fxd --dataroot path/to/dataset
 ```
 path/to/dataset must contain two folders: setA and setB
 
-To run the evaluation on GPU, use the flag `--cuda` 
-To compute other metric scores, use the flag `--all`
+`--cuda`  To run the evaluation on GPU, use the flag 
+`--all` To compute other metric scores, use the flag 
+
 The scores are by default calculated using Torchxrayvision's pretrained model. To calculate using Inception v3 instead, use the flag `--metric fid`
 
 To view other optional arguments:
