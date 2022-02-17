@@ -51,7 +51,6 @@ from scipy import linalg
 import skimage, skimage.io
 from skimage import io, transform
 from skimage.color import rgb2gray
-import matplotlib.pyplot as plt
 
 import torchxrayvision as xrv
 from torchxrayvision.models import *
@@ -468,13 +467,13 @@ def main():
         print("\t-------------------------")
         print("\tEvaluation Scores")
         print("\t-------------------------")
-        print("\t",opt.metric,": ", result[0])
+        print("\t" + opt.metric + ": "+result[0])
         result[1].printScore()
     else:
         print("\t-------------------------")
         print("\tEvaluation Score")
         print("\t-------------------------")
-        print("\t",opt.metric,": ", result)
+        print("\t" + opt.metric+": " + result)
     
 if __name__ == "__main__":
     main()
