@@ -401,7 +401,7 @@ def compute_score(dataroot, metric="fxd", workers=4, batchSize=64, other=False, 
     Function to compute the selected evaluation metric score(s).
     
     Parameters:
-        dataroot: Path to folder containing both image directories - real and generated
+        dataroot: Path to folder containing both image directories - setA and setB
         metric: Possible options - fxd | fid 
         workers: Number of workers required
         batchSize: Batch size during featurization
@@ -432,8 +432,8 @@ def compute_score(dataroot, metric="fxd", workers=4, batchSize=64, other=False, 
 #     cmd1 = "/scratch/chexdata/allclasses/chex/"+"real"
 #     cmd2 = "/scratch/chexdata/allclasses/chex/"+"fake"
 
-    cmd1 = dataroot + "real"
-    cmd2 = dataroot + "generated"
+    cmd1 = dataroot + "setA"
+    cmd2 = dataroot + "setB"
 
     ac1 = getFeat(cmd1, workers, batchSize, device)
     ac2 = getFeat(cmd2, workers, batchSize, device)
@@ -451,7 +451,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--metric', help='evaluation metric', default='fxd')
-    parser.add_argument('--dataroot', required=True, help='path to folder containing real and generated images')
+    parser.add_argument('--dataroot', required=True, help='path to folder containing setA and setB images')
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
     parser.add_argument('--batchSize', type=int, default=64, help='input batch size')
     parser.add_argument('--cuda', action='store_true', help='enables cuda')

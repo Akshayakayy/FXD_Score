@@ -38,7 +38,7 @@ To compute the FXD score between two datasets, where images of each dataset are 
 ```
 pytorch-fxd --dataroot path/to/dataset
 ```
-path/to/dataset must contain two folders: real and generated
+path/to/dataset must contain two folders: setA and setB
 
 To run the evaluation on GPU, use the flag `--cuda` 
 To compute other metric scores, use the flag `--all`
