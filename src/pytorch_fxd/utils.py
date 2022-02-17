@@ -58,7 +58,6 @@ from torchxrayvision.datasets import *
 import torchvision.transforms as transforms
 import torchvision.datasets as dset
 import torchvision.models as models
-from sklearn.cluster import KMeans
 
 import numpy
 from numpy import cov
@@ -434,7 +433,7 @@ def compute_score(dataroot, metric="fxd", workers=4, batchSize=64, other=False, 
 #     cmd2 = "/scratch/chexdata/allclasses/chex/"+"fake"
 
     cmd1 = dataroot + "real"
-    cmd2 = dataroot + "fake"
+    cmd2 = dataroot + "generated"
 
     ac1 = getFeat(cmd1, workers, batchSize, device)
     ac2 = getFeat(cmd2, workers, batchSize, device)
@@ -467,7 +466,7 @@ def main():
         print("\t-------------------------")
         print("\tEvaluation Scores")
         print("\t-------------------------")
-        print("\t" + opt.metric + ": "+result[0])
+        print("\t" + opt.metric + ": " + result[0])
         result[1].printScore()
     else:
         print("\t-------------------------")
