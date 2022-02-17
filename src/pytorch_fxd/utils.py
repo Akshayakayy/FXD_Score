@@ -28,6 +28,7 @@ def calculate_fd(act1, act2):
     score = ssdiff + trace(sigma1 + sigma2 - 2.0 * covmean)
     return score
 
+print("Running pytorch-fxd...")
 a1 = random(2*2048).reshape((2,2048))
 fd = calculate_fd(a1, a1)
 feat_model = "torchxrayvision"
@@ -189,12 +190,12 @@ class Score:
     knn = None
     
     def printScore(self):
-        print("\tEMD:",self.emd)
-        print("\tMMD:",self.mmd)
-        print("\tPrecision:",self.knn.precision.numpy())
-        print("\tRecall:",self.knn.recall.numpy())
-        print("\tAcc_t:",self.knn.acc_t.numpy())
-        print("\tAcc_f:",self.knn.acc_f.numpy())
+        print("\tEMD:", "%.3f" % self.emd)
+        print("\tMMD:", "%.3f" % self.mmd)
+        print("\tPrecision:", "%.3f" % self.knn.precision.numpy())
+        print("\tRecall:", "%.3f" % self.knn.recall.numpy())
+        print("\tAcc_t:", "%.3f" % self.knn.acc_t.numpy())
+        print("\tAcc_f:", "%.3f" % self.knn.acc_f.numpy())
         
 
 def compute_other(real, fake, k=1, sigma=1, sqrt=True):
@@ -432,8 +433,8 @@ def compute_score(dataroot, metric="fxd", workers=4, batchSize=64, other=False, 
 #     cmd1 = "/scratch/chexdata/allclasses/chex/"+"real"
 #     cmd2 = "/scratch/chexdata/allclasses/chex/"+"fake"
 
-    cmd1 = dataroot + "setA"
-    cmd2 = dataroot + "setB"
+    cmd1 = dataroot + "/setA"
+    cmd2 = dataroot + "/setB"
 
     ac1 = getFeat(cmd1, workers, batchSize, device)
     ac2 = getFeat(cmd2, workers, batchSize, device)
@@ -463,16 +464,16 @@ def main():
     result = compute_score(opt.dataroot, opt.metric, opt.workers, opt.batchSize, opt.all, opt.cuda)
     
     if opt.all:
-        print("\t-------------------------")
+        print("\t---------------------")
         print("\tEvaluation Scores")
-        print("\t-------------------------")
-        print("\t" + opt.metric + ": " + result[0])
+        print("\t---------------------")
+        print("\t" + opt.metric + ":", "%.3f" % result[0])
         result[1].printScore()
     else:
-        print("\t-------------------------")
+        print("\t---------------------")
         print("\tEvaluation Score")
-        print("\t-------------------------")
-        print("\t" + opt.metric+": " + result)
+        print("\t---------------------")
+        print("\t" + opt.metric+":", "%.3f" % result)
     
 if __name__ == "__main__":
     main()
